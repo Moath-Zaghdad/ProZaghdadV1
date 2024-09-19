@@ -1,3 +1,4 @@
+using System.Linq;
 using Abp.Application.Services;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
@@ -20,5 +21,14 @@ namespace ProZaghdadV1.Colleges
 
         }
 
+        protected override IQueryable<College> CreateFilteredQuery(PagedCollegeResultRequestDto input)
+        {
+            IQueryable<College> query = Repository.GetAll();
+            if (!string.IsNullOrWhiteSpace(input.Keyword))
+            {
+                query = query.Where(x => x.Name.Contains(input.Keyword) || x.Email.Contains(input.Keyword));
+            }
+            return query;
+        }
     }
 }
