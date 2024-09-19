@@ -2902,6 +2902,7 @@ export class CreateStudentDto implements ICreateStudentDto {
     programName: string | undefined;
     doB: string | undefined;
     isActive: boolean;
+    collegeId: number;
 
     constructor(data?: ICreateStudentDto) {
         if (data) {
@@ -2920,6 +2921,7 @@ export class CreateStudentDto implements ICreateStudentDto {
             this.programName = _data["programName"];
             this.doB = _data["doB"];
             this.isActive = _data["isActive"];
+            this.collegeId = _data["collegeId"];
         }
     }
 
@@ -2938,6 +2940,7 @@ export class CreateStudentDto implements ICreateStudentDto {
         data["programName"] = this.programName;
         data["doB"] = this.doB;
         data["isActive"] = this.isActive;
+        data["collegeId"] = this.collegeId;
         return data;
     }
 
@@ -2956,6 +2959,7 @@ export interface ICreateStudentDto {
     programName: string | undefined;
     doB: string | undefined;
     isActive: boolean;
+    collegeId: number;
 }
 
 export class CreateTenantDto implements ICreateTenantDto {
@@ -4015,6 +4019,7 @@ export class StudentDto implements IStudentDto {
     programName: string | undefined;
     doB: string | undefined;
     isActive: boolean;
+    collegeId: number;
     creationTime: moment.Moment;
     creatorUserId: number | undefined;
 
@@ -4036,6 +4041,7 @@ export class StudentDto implements IStudentDto {
             this.programName = _data["programName"];
             this.doB = _data["doB"];
             this.isActive = _data["isActive"];
+            this.collegeId = _data["collegeId"];
             this.creationTime = _data["creationTime"] ? moment(_data["creationTime"].toString()) : <any>undefined;
             this.creatorUserId = _data["creatorUserId"];
         }
@@ -4057,6 +4063,7 @@ export class StudentDto implements IStudentDto {
         data["programName"] = this.programName;
         data["doB"] = this.doB;
         data["isActive"] = this.isActive;
+        data["collegeId"] = this.collegeId;
         data["creationTime"] = this.creationTime ? this.creationTime.toISOString() : <any>undefined;
         data["creatorUserId"] = this.creatorUserId;
         return data;
@@ -4078,6 +4085,7 @@ export interface IStudentDto {
     programName: string | undefined;
     doB: string | undefined;
     isActive: boolean;
+    collegeId: number;
     creationTime: moment.Moment;
     creatorUserId: number | undefined;
 }
@@ -4383,6 +4391,7 @@ export class UpdateStudentDto implements IUpdateStudentDto {
     programName: string | undefined;
     doB: string | undefined;
     isActive: boolean;
+    collegeId: number;
 
     constructor(data?: IUpdateStudentDto) {
         if (data) {
@@ -4402,6 +4411,7 @@ export class UpdateStudentDto implements IUpdateStudentDto {
             this.programName = _data["programName"];
             this.doB = _data["doB"];
             this.isActive = _data["isActive"];
+            this.collegeId = _data["collegeId"];
         }
     }
 
@@ -4421,6 +4431,7 @@ export class UpdateStudentDto implements IUpdateStudentDto {
         data["programName"] = this.programName;
         data["doB"] = this.doB;
         data["isActive"] = this.isActive;
+        data["collegeId"] = this.collegeId;
         return data;
     }
 
@@ -4440,6 +4451,7 @@ export interface IUpdateStudentDto {
     programName: string | undefined;
     doB: string | undefined;
     isActive: boolean;
+    collegeId: number;
 }
 
 export class UserDto implements IUserDto {
