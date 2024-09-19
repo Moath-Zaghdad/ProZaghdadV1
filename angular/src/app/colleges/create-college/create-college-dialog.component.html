@@ -88,7 +88,7 @@
     </label>
     <div class="col-md-9">
         <input
-            type="text"
+            type="number"
             class="form-control"
             name="gpsLatitude"
             id="gpsLatitude"
@@ -112,7 +112,7 @@
     </label>
     <div class="col-md-9">
         <input
-            type="text"
+            type="number"
             class="form-control"
             name="gpsLongitude"
             id="gpsLongitude"
@@ -136,7 +136,7 @@
     </label>
     <div class="col-md-9">
         <input
-            type="text"
+            type="email"
             class="form-control"
             name="email"
             id="email"
@@ -146,6 +146,7 @@
             [(ngModel)]="college.email"
             #emailModel="ngModel"
             #emailEl
+            email
         />
         <abp-validation-summary
                 [control]="emailModel"

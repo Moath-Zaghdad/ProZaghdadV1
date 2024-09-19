@@ -26,7 +26,6 @@ class PagedCollegesRequestDto extends PagedRequestDto {
 export class CollegesComponent extends PagedListingComponentBase<CollegeDto> {
     colleges: CollegeDto[] = [];
     keyword = '';
-    advancedFiltersVisible = false;
 
     constructor(
         injector: Injector,
