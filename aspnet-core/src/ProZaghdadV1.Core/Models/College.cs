@@ -24,5 +24,7 @@ namespace ProZaghdadV1.Models
         [EmailAddress]
         public string Email { get; set; }
         public string ZaghdadString { get; set; }
+
+        public ICollection<Student> Students { get; set; }
     }
 }

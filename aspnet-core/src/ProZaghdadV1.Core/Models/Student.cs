@@ -20,5 +20,9 @@ namespace ProZaghdadV1.Models
         public  string ProgramName { get; set; }
         public  string DoB { get; set; }
         public  bool IsActive { get; set; }
+
+        public int CollegeId { get; set; }
+        public College College { get; set; }
+
     }
 }

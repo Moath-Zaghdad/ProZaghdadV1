@@ -23,6 +23,13 @@ namespace ProZaghdadV1.EntityFrameworkCore
             modelBuilder.Entity<Abp.Localization.ApplicationLanguageText>()
                 .Property(p => p.Value)
                 .HasMaxLength(100);
+
+            modelBuilder.Entity<College>()
+                .HasMany(e => e.Students)
+                .WithOne(e => e.College)
+                .HasForeignKey("CollegeId")
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
 
         public virtual DbSet<Student> Students { get; set; }
