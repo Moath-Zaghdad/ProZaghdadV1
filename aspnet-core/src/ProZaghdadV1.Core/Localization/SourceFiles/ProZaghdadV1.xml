@@ -120,5 +120,18 @@
     <text name="403PageHeader">Forbidden</text>
     <text name="403PageDescription">You don't have permission to access this resource. Please contact your administrator.</text>
     <text name="403PageButton">Go back to Dashboard</text>
+    <text name="GpsLatitude">GPS latitude</text>
+    <text name="GpsLongitude">GPS longitude</text>
+    <text name="ZaghdadString">Zaghdad string</text>
+    <text name="FirstName">First name</text>
+    <text name="LastName">Last name</text>
+    <text name="ProgramName">Program name</text>
+    <text name="DoB">Date of birth</text>
+    <text name="EditStudent">Edit student</text>
+    <text name="EditCollege">Edit college</text>
+    <text name="CreateNewStudent">Create New Student</text>
+    <text name="CreateNewCollege">Create New College</text>
+    <text name="StudentDeleteWarningMessage">This action cannot be undone. Deleting this student will permanently remove all their data.</text>
+    <text name="CollegeDeleteWarningMessage">Deleting this college will permanently remove all associated data. This action cannot be undone.</text>
   </texts>
 </localizationDictionary>
