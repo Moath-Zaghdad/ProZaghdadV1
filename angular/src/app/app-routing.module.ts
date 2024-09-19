@@ -47,11 +47,6 @@ import { CollegesComponent } from 'app/colleges/colleges.component';
                         canActivate: [AppRouteGuard]
                     },
                     {
-                        // path: 'students',
-                        // loadChildren: () => import('./students/students.module').then((m) => m.StudentModule),
-                        // data: { permission: 'Pages.Students' },
-                        // canActivate: [AppRouteGuard]
-
                         path: 'students',
                         component: StudentsComponent,
                         data: { permission: 'Pages.Students' },

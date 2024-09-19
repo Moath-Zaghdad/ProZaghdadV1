@@ -61,6 +61,18 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
                 'fas fa-users',
                 'Pages.Users'
             ),
+            new MenuItem(
+                this.l('Students'),
+                '/app/students',
+                'fa-duotone fa-solid fa-user-graduate',
+                'Pages.Students'
+            ),
+            new MenuItem(
+                this.l('Colleges'),
+                '/app/colleges',
+                'fa-sharp-duotone fa-solid fa-building-columns',
+                'Pages.Colleges'
+            ),
             new MenuItem(this.l('MultiLevelMenu'), '', 'fas fa-circle', '', [
                 new MenuItem('ASP.NET Boilerplate', '', 'fas fa-dot-circle', '', [
                     new MenuItem(
@@ -112,18 +124,6 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
                     )
                 ])
             ]),
-            new MenuItem(
-                this.l('Students'),
-                '/app/students',
-                'fas fa-building',
-                'Pages.Students'
-            ),
-            new MenuItem(
-                this.l('Colleges'),
-                '/app/colleges',
-                'fa-sharp-duotone fa-solid fa-building-columns',
-                'Pages.Colleges'
-            ),
         ];
     }
 
