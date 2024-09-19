@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { AppRouteGuard } from '@shared/auth/auth-route-guard';
 import { AppComponent } from './app.component';
 import { StudentsComponent } from 'app/students/students.component';
+import { CollegesComponent } from 'app/colleges/colleges.component';
 
 
 @NgModule({
@@ -54,6 +55,12 @@ import { StudentsComponent } from 'app/students/students.component';
                         path: 'students',
                         component: StudentsComponent,
                         data: { permission: 'Pages.Students' },
+                        canActivate: [AppRouteGuard]
+                    },
+                    {
+                        path: 'colleges',
+                        component: CollegesComponent,
+                        data: { permission: 'Pages.Colleges' },
                         canActivate: [AppRouteGuard]
                     },
 
