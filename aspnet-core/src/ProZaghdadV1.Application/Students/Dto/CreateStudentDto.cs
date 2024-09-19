@@ -1,5 +1,6 @@
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using System.ComponentModel.DataAnnotations;
 using ProZaghdadV1.Models;
 
 namespace ProZaghdadV1.Students.Dto
@@ -14,7 +15,8 @@ namespace ProZaghdadV1.Students.Dto
         public string ProgramName { get; set; }
         public string DoB { get; set; }
         public bool IsActive { get; set; }
-        ///CreateDto.cs.fields1///
+        [Required]
+        public int CollegeId { get; set; }
 
     }
 }

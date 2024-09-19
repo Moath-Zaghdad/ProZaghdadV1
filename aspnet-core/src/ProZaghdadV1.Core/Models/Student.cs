@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
+using System.ComponentModel.DataAnnotations;
 
 namespace ProZaghdadV1.Models
 {
@@ -21,6 +22,7 @@ namespace ProZaghdadV1.Models
         public  string DoB { get; set; }
         public  bool IsActive { get; set; }
 
+        [Required]
         public int CollegeId { get; set; }
         public College College { get; set; }
 
