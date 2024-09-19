@@ -130,6 +130,31 @@
     </div>
 </div>
 
+<div class="form-group row required">
+    <label class="col-md-3 col-form-label" for="collegeId">
+        {{ "CollegeId" | localize }}
+    </label>
+    <div class="col-md-9">
+        <input
+            type="number"
+            class="form-control"
+            name="collegeId"
+            id="collegeId"
+            required
+            minlength="2"
+            maxlength="256"
+            [(ngModel)]="student.collegeId"
+            #collegeIdModel="ngModel"
+            #collegeIdEl
+        />
+        <abp-validation-summary
+                [control]="collegeIdModel"
+                [controlEl]="collegeIdEl"
+        ></abp-validation-summary>
+    </div>
+</div>
+
+
 <!--edit-dialog.component.html.fields1-->
 
     <div class="form-group row mb-0">

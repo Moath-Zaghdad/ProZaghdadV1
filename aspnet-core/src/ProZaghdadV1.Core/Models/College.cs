@@ -26,5 +26,10 @@ namespace ProZaghdadV1.Models
         public string ZaghdadString { get; set; }
 
         public ICollection<Student> Students { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Address}";
+        }
     }
 }
