@@ -6,7 +6,7 @@ export class SignalRAspNetCoreHelper {
         const encryptedAuthToken = new UtilsService().getCookieValue(AppConsts.authorization.encryptedAuthTokenName);
 
         abp.signalr = {
-            autoConnect: true,
+            autoConnect: false,
             connect: undefined,
             hubs: undefined,
             qs: AppConsts.authorization.encryptedAuthTokenName + '=' + encodeURIComponent(encryptedAuthToken),

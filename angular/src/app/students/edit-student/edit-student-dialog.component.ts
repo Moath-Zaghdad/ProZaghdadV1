@@ -3,7 +3,8 @@ import {
   Injector,
   OnInit,
   Output,
-  EventEmitter
+  EventEmitter,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AppComponentBase } from '@shared/app-component-base';
@@ -26,7 +27,8 @@ export class EditStudentDialogComponent extends AppComponentBase
   constructor(
       injector: Injector,
       public _studentService: StudentServiceProxy,
-      public bsModalRef: BsModalRef
+      public bsModalRef: BsModalRef,
+      private cd: ChangeDetectorRef
   ) {
     super(injector);
   }
@@ -34,6 +36,7 @@ export class EditStudentDialogComponent extends AppComponentBase
   ngOnInit(): void {
     this._studentService.get(this.id).subscribe((result: StudentDto) => {
       this.student = result;
+      this.cd.detectChanges();
     });
   }
 
