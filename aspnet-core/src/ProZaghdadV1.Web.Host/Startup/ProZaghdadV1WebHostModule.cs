@@ -23,5 +23,14 @@ namespace ProZaghdadV1.Web.Host.Startup
         {
             IocManager.RegisterAssemblyByConvention(typeof(ProZaghdadV1WebHostModule).GetAssembly());
         }
+
+        public override void PreInitialize()
+        {
+            Configuration.BackgroundJobs.IsJobExecutionEnabled = false;
+
+            // https://www.npgsql.org/efcore/release-notes/6.0.html?tabs=annotations
+            System.AppContext.SetSwitch("Npgsql.DisableDataTimeInfinityConversion", true);
+            System.AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+        }
     }
 }

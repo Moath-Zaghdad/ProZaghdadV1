@@ -13,7 +13,6 @@ using Abp.Castle.Logging.Log4Net;
 using Abp.Extensions;
 using ProZaghdadV1.Configuration;
 using ProZaghdadV1.Identity;
-using Abp.AspNetCore.SignalR.Hubs;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System.IO;
@@ -45,8 +44,6 @@ namespace ProZaghdadV1.Web.Host.Startup
 
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
-
-            services.AddSignalR();
 
             // Configure CORS for angular2 UI
             services.AddCors(
@@ -98,7 +95,6 @@ namespace ProZaghdadV1.Web.Host.Startup
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<AbpCommonHub>("/signalr");
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute("defaultWithArea", "{area}/{controller=Home}/{action=Index}/{id?}");
             });

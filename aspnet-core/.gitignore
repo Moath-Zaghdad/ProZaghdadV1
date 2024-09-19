@@ -254,3 +254,6 @@ paket-files/
 src/ProZaghdadV1.Web.Mvc/secrets.json
 src/ProZaghdadV1.Web.Host/secrets.json
 src/ProZaghdadV1.Migrator/secrets.json
+
+# Logs
+src/ProZaghdadV1.Web.Host/App_Data/Logs/*

@@ -3,6 +3,7 @@ using Abp.Zero.EntityFrameworkCore;
 using ProZaghdadV1.Authorization.Roles;
 using ProZaghdadV1.Authorization.Users;
 using ProZaghdadV1.MultiTenancy;
+using ProZaghdadV1.Models;
 
 namespace ProZaghdadV1.EntityFrameworkCore
 {
@@ -14,5 +15,16 @@ namespace ProZaghdadV1.EntityFrameworkCore
             : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Abp.Localization.ApplicationLanguageText>()
+                .Property(p => p.Value)
+                .HasMaxLength(100);
+        }
+
+        public virtual DbSet<Student> Students { get; set; }
     }
 }

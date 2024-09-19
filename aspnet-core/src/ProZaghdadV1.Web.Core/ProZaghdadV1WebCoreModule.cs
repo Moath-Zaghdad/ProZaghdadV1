@@ -5,7 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Abp.AspNetCore;
 using Abp.AspNetCore.Configuration;
-using Abp.AspNetCore.SignalR;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Abp.Zero.Configuration;
@@ -20,7 +19,6 @@ namespace ProZaghdadV1
          typeof(ProZaghdadV1ApplicationModule),
          typeof(ProZaghdadV1EntityFrameworkModule),
          typeof(AbpAspNetCoreModule)
-        ,typeof(AbpAspNetCoreSignalRModule)
      )]
     public class ProZaghdadV1WebCoreModule : AbpModule
     {
