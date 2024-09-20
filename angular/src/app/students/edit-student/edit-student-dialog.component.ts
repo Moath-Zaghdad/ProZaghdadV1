@@ -10,7 +10,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AppComponentBase } from '@shared/app-component-base';
 import {
   StudentServiceProxy,
-  StudentDto
+  CollegeServiceProxy,
+  StudentDto,
+  CollegeDto
 } from '@shared/service-proxies/service-proxies';
 
 @Component({
@@ -20,6 +22,7 @@ export class EditStudentDialogComponent extends AppComponentBase
     implements OnInit {
   saving = false;
   student: StudentDto = new StudentDto();
+  colleges: CollegeDto[] = [];
   id: number;
 
   @Output() onSave = new EventEmitter<any>();
@@ -27,6 +30,7 @@ export class EditStudentDialogComponent extends AppComponentBase
   constructor(
       injector: Injector,
       public _studentService: StudentServiceProxy,
+      public _collegeService: CollegeServiceProxy,
       public bsModalRef: BsModalRef,
       private cd: ChangeDetectorRef
   ) {
@@ -36,7 +40,12 @@ export class EditStudentDialogComponent extends AppComponentBase
   ngOnInit(): void {
     this._studentService.get(this.id).subscribe((result: StudentDto) => {
       this.student = result;
-      this.cd.detectChanges();
+
+      this._collegeService.getAll(undefined, 0, undefined).subscribe((result2) => {
+        this.colleges = result2.items;
+        this.cd.detectChanges();
+      });
+
     });
   }
 

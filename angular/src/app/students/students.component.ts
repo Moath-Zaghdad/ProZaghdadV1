@@ -10,6 +10,8 @@ import {
     StudentServiceProxy,
     StudentDto,
     StudentDtoPagedResultDto,
+    CollegeDto,
+    CollegeServiceProxy,
 } from '@shared/service-proxies/service-proxies';
 import { CreateStudentDialogComponent } from './create-student/create-student-dialog.component';
 import { EditStudentDialogComponent } from './edit-student/edit-student-dialog.component';
@@ -28,11 +30,13 @@ export class StudentsComponent extends PagedListingComponentBase<StudentDto> {
     students: StudentDto[] = [];
     keyword = '';
     isActive: boolean | null;
+    colleges: { [key: number]: string } = {};
     advancedFiltersVisible = false;
 
     constructor(
         injector: Injector,
         private _studentService: StudentServiceProxy,
+        private _collegeService: CollegeServiceProxy,
         private _modalService: BsModalService,
         cd: ChangeDetectorRef
     ) {
@@ -62,6 +66,16 @@ export class StudentsComponent extends PagedListingComponentBase<StudentDto> {
             .subscribe((result: StudentDtoPagedResultDto) => {
                 this.students = result.items;
                 this.showPaging(result, pageNumber);
+
+                const collegeIds = [...new Set(this.students.map(student => student.collegeId))]
+                for(const collegId of collegeIds) {
+                    this._collegeService.get(collegId).subscribe(college => {
+                        this.colleges[college.id] = college.name
+                        this.cd.detectChanges();
+                    });
+                }
+                console.log(this.colleges, this.students);
+
             });
     }
 

@@ -3,11 +3,14 @@ import {
     Injector,
     OnInit,
     Output,
-    EventEmitter
+    EventEmitter,
+    ChangeDetectorRef
 } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AppComponentBase } from '@shared/app-component-base';
 import {
+    CollegeDto,
+    CollegeServiceProxy,
     CreateStudentDto,
     StudentServiceProxy
 } from '@shared/service-proxies/service-proxies';
@@ -19,19 +22,27 @@ export class CreateStudentDialogComponent extends AppComponentBase
     implements OnInit {
     saving = false;
     student: CreateStudentDto = new CreateStudentDto();
+    colleges: CollegeDto[] = [];
 
     @Output() onSave = new EventEmitter<any>();
 
     constructor(
         injector: Injector,
         public _studentService: StudentServiceProxy,
-        public bsModalRef: BsModalRef
+        public _collegeService: CollegeServiceProxy,
+        public bsModalRef: BsModalRef,
+        private cd: ChangeDetectorRef,
     ) {
         super(injector);
     }
 
     ngOnInit(): void {
         this.student.isActive = true;
+
+        this._collegeService.getAll(undefined, 0, undefined).subscribe((result2) => {
+            this.colleges = result2.items;
+            this.cd.detectChanges();
+        });
     }
 
     save(): void {
