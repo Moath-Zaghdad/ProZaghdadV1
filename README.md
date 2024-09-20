@@ -3,14 +3,26 @@
 
 # Screenshots
 
-#### Sample Dashboard Page
-![](_screenshots/students.png)
-![](_screenshots/students_edit.png)
-![](_screenshots/colleges.png)
-![](_screenshots/colleges_edit.png)
+## Student Dashboard Pages
+### Student List
+![](_screenshots/student_list.png)
+### Student Search
+![](_screenshots/student_list_search.png)
+### Student Edit
+![](_screenshots/student_edit.png)
+![](_screenshots/student_edit_2.png)
+![](_screenshots/student_edit_3.png)
 
-#### User Creation Modal
-![](_screenshots/module-zero-core-template-ui-user-create-modal.png)
+### College Dashboard Pages
+#### College List
+![](_screenshots/college_list.png)
+#### College Search
+![](_screenshots/college_list_search.png)
+#### College Edit
+![](_screenshots/college_edit.png)
+![](_screenshots/college_form_validation.png)
+#### College Delete Alert
+![](_screenshots/college_delete_alert.png)
 
 
 # Documentation
